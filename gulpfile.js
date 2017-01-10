@@ -20,6 +20,12 @@ var path = require('path'),
         "js": vendorPath('bootstrap/dist/js/bootstrap.js')
     },
 
+    Materialize = {
+        "fonts": vendorPath('materialize/dist/fonts', true),
+        "css": vendorPath('materialize/dist/css/materialize.min.css'),
+        "js": vendorPath('materialize/dist/js/materialize.min.js')
+    },
+
 //glyphicons
     glyphs = {
         fonts: vendorPath('glyphicons/fonts', true),
@@ -77,9 +83,9 @@ var path = require('path'),
      */
     apps = {
         "frontend": {
-            "fonts": [Bootstrap.fonts, fontawesome.fonts, glyphs.fonts, appPath('frontend', 'fonts')],
-            "css": [tether.css, Bootstrap.css, bootstrap_social.css, fontawesome.css, datetimepicker.css, select2.css, glyphs.css, appPath('frontend', 'css')],
-            "js": [jQuery, tether.js, Bootstrap.js, moment.js, datetimepicker.js, select2.js, mustache.js, appPath('frontend', 'js')]
+            "fonts": [Materialize.fonts, fontawesome.fonts, glyphs.fonts, appPath('frontend', 'fonts')],
+            "css": [tether.css, Materialize.css, bootstrap_social.css, fontawesome.css, datetimepicker.css, select2.css, glyphs.css, appPath('frontend', 'css')],
+            "js": [jQuery, tether.js, Materialize.js, moment.js, datetimepicker.js, select2.js, mustache.js, appPath('frontend', 'js')]
         },
         "backend": {
             "fonts": [Bootstrap.fonts, fontawesome.fonts, glyphs.fonts, appPath('backend', 'fonts')],
