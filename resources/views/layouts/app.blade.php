@@ -17,11 +17,26 @@
     <div class="content">
         @yield('content')
     </div>
-    <footer class="footer">
+    {{--<footer class="footer">--}}
+        {{--<div class="container">--}}
+            {{--<p class="text-justify text-muted text-xs-center">--}}
+                {{--@lang('layout.footer_app')--}}
+            {{--</p>--}}
+        {{--</div>--}}
+    {{--</footer>--}}
+    <footer class="page-footer">
         <div class="container">
-            <p class="text-justify text-muted text-xs-center">
-                @lang('layout.footer_app')
-            </p>
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">DDots</h5>
+                    <p class="grey-text text-lighten-4">@lang('layout.footer_app')</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Copyright © {{ date('Y') }}
+            </div>
         </div>
     </footer>
     @yield('scripts')

@@ -4,34 +4,38 @@
     <div class="container">
         <!-- logo and title -->
         <div class="row">
-            <div class="col-sm-2">
-                <img src="{{ $subdomain->image }}" alt="sub-logo" class="subdomain-logo"/>
-            </div>
-            <div class="col-sm-10">
-                <h3>
-                    <p>{{ $subdomain->description }}</p>
-                    <p>@lang('layout.description_2')</p>
-                </h3>
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">{{ $subdomain->fullname }}</span>
+                        <div class="row">
+                            <div class="col s2">
+                                <img src="{{ $subdomain->image }}" alt="sub-logo" class="subdomain-logo"/>
+                            </div>
+                            <div class="col s10">
+                                <p>{{ $subdomain->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- description -->
         @if(!Auth::check())
-
-            <hr class="hidden-border">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col s12">
                     <div class="card" id="login">
-                        <div class="card-header">@lang('menu.login')</div>
-                        <div class="card-block">
+                        <div class="card-content">
+                            <span class="card-title">@lang('menu.login')</span>
                             <form role="form" method="POST" action="{{ url('/login') }}">
                                 {{ csrf_field() }}
-                                <div class="form-group row {{ $errors->has('nickname') ? ' has-danger' : '' }}">
-                                    <label class="col-md-4 col-form-label">@lang('layout.email_nickname')</label>
+                                <div class="row {{ $errors->has('nickname') ? ' has-danger' : '' }}">
 
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="@lang('layout.enter_email')"
+                                    <div class="col m8 offset-m2">
+                                        <input class="form-control" type="text" placeholder="@lang('layout.email_nickname')"
                                                name="nickname">
+
                                         @if ($errors->has('nickname'))
                                             <span class="form-control-feedback">
                                                 <strong>{{ $errors->first('nickname') }}</strong>
@@ -39,9 +43,8 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="form-group row {{ $errors->has('password') ? ' has-danger' : '' }}">
-                                    <label class="col-md-4 col-form-label">@lang('layout.password')</label>
-                                    <div class="col-md-6">
+                                <div class="row {{ $errors->has('password') ? ' has-danger' : '' }}">
+                                    <div class="col m8 offset-m2">
                                         <input class="form-control" type="password" placeholder="@lang('layout.password')"
                                                name="password">
                                         @if ($errors->has('password'))
@@ -53,23 +56,22 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col m8 offset-m2">
                                         <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="remember"> @lang('layout.remember_me')
-                                            </label>
+                                            <input type="checkbox" name="remember" id="remember" class="filled-in">
+                                            <label for="remember">@lang('layout.remember_me')</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col m8 offset-m2">
                                         <a class="btn btn-social-icon btn-vk"       href="{{ route('social::redirect', ['provider' => 'vkontakte']) }}"><span class="fa fa-vk"></span></a>
                                         <a class="btn btn-social-icon btn-google"   href="{{ route('social::redirect', ['provider' => 'google']) }}"><span class="fa fa-google"></span></a>
                                         <a class="btn btn-social-icon btn-facebook" href="{{ route('social::redirect', ['provider' => 'facebook']) }}"><span class="fa fa-facebook"></span></a>
                                     </div>
                                 </div>
                                 <div class="form-group row ">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col m8 offset-m2">
                                         <button type="submit" class="btn btn-primary">
                                             <i class="fa fa-btn fa-sign-in"></i> @lang('menu.login')
                                         </button>
@@ -84,82 +86,87 @@
 
                 </div>
             </div>
-        @endif
-        <hr class="hidden-border">
-        <!-- news -->
+    @endif
+    <!-- news -->
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col s12">
                 <div class="card">
-                    <div class="card-header">@lang('menu.news')</div>
-                    @each('partial.news_item', $subdomain->news()->orderBy('created_at', 'desc')->take(3)->get(), 'news_item')
-                    <div class="card-block">
+                    <div class="card-content">
+                        <div class="card-title">@lang('menu.news')</div>
+                        @each('partial.news_item', $subdomain->news()->orderBy('created_at', 'desc')->take(3)->get(), 'news_item')
+                    </div>
+                    <div class="card-action">
                         <a href="{{ url('news') }}" class="btn btn-success pull-right">@lang('layout.latest_news')</a>
                     </div>
                 </div>
-
             </div>
         </div>
 
-
-        <hr class="hidden-border">
-        <!-- news -->
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col s12">
                 <div class="card">
-                    <div class="card-header">@lang('layout.supported_by')</div>
+                    <div class="card-content">
+                        <div class="card-title">@lang('layout.supported_by')</div>
+                        <div class="row">
+                            @foreach($subdomain->sponsors as $sponsor)
+                                <div class="col m4">
+                                    <div class="card horizontal">
+                                        <div class="card-image">
+                                            <img src="{{ $sponsor->image }}" alt="sponsor-logo" class="sponsor-logo" />
+                                        </div>
 
-                    @foreach($subdomain->sponsors as $sponsor)
-                        <div class="card-block">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <a href="{{ $sponsor->link }}"><img src="{{ $sponsor->image }}" alt="sponsor-logo" class="sponsor-logo" /></a>
+                                        <div class="card-stacked">
+                                            <div class="card-content">
+                                                {{ $sponsor->description }}
+                                            </div>
+                                            <div class="card-action">
+                                                <a href="{{ $sponsor->link }}">{{ $sponsor->name }}</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <a href="{{ $sponsor->link }}">{{ $sponsor->name }}</a>
-                                </div>
-                                <div class="col-sm-4">
-                                    {{ $sponsor->description }}
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <hr>
-                    @endforeach
-
-                    <div class="card-block">
+                    </div>
+                    <div class="card-action">
                         <a href="{{ url('sponsors') }}" class="btn btn-success pull-right">@lang('layout.all_sponsors')</a>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <hr class="hidden-border">
-        <!-- news -->
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col s12">
                 <div class="card">
-                    <div class="card-header">@lang('layout.sub_teachers_mentors')</div>
-                    @foreach($subdomain->users()->teacher()->inRandomOrder()->take(3)->get() as $teacher)
-                        <div class="card-block">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <a href="{{ url('user', ['id' => $teacher->id]) }}"><img src="{{ $teacher->avatar }}" alt="sponsor-logo" class="sponsor-logo" /></a>
+                    <div class="card-content">
+                        <div class="card-title">@lang('layout.sub_teachers_mentors')</div>
+                        <div class="row">
+                            @foreach($subdomain->users()->teacher()->inRandomOrder()->take(3)->get() as $teacher)
+                                <div class="col m4">
+                                    <div class="card horizontal">
+                                        <div class="card-image">
+                                            <img src="{{ $teacher->avatar }}" alt="sponsor-logo" class="sponsor-logo" />
+                                        </div>
+
+                                        <div class="card-stacked">
+                                            <div class="card-content">
+                                                {{ $teacher->description }}
+                                            </div>
+                                            <div class="card-action">
+                                                <a href="{{ url('user', ['id' => $teacher->id]) }}">{{ $teacher->name }}</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <a href="{{ url('user', ['id' => $teacher->id]) }}">{{ $teacher->name }}</a>
-                                </div>
-                                <div class="col-sm-4 breaking-word">
-                                    {{ $teacher->description }}
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <hr>
-                    @endforeach
-                    <div class="card-block">
+                    </div>
+                    <div class="card-action">
                         <a href="{{ url('teachers') }}" class="btn btn-success pull-right">@lang('layout.all_teachers_mentors')</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
