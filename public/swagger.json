@@ -1,0 +1,492 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0",
+        "title": "dots api",
+        "description": "TODO: Add Description",
+        "license": {
+            "name": "MIT",
+            "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+        }
+    },
+    "host": "ddots.org.ua",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "basePath": "/api",
+    "paths": {
+        "/solutions/3/report": {
+            "post": {
+                "description": "",
+                "operationId": "get solution store report",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "message",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tests[0][status]",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tests[0][execution_time]",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tests[0][memory_peak]",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "POST",
+                            "uri": "/solutions/3/report",
+                            "headers": {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            "body": "status=OK&message=all good&tests[0][status]=OK&tests[0][execution_time]=123&tests[0][memory_peak]=321"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "get solution store report",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        },
+        "/problems/1/tests-archive.tar.gz": {
+            "get": {
+                "description": "",
+                "operationId": "get problem",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "GET",
+                            "uri": "/problems/1/tests-archive.tar.gz"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "get problem",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        },
+        "/solutions/3/source-code": {
+            "get": {
+                "description": "",
+                "operationId": "get solution source code",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "GET",
+                            "uri": "/solutions/3/source-code"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "get solution source code",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        },
+        "/solutions/3": {
+            "get": {
+                "description": "",
+                "operationId": "get solution",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "GET",
+                            "uri": "/solutions/3"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "get solution",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            },
+            "patch": {
+                "description": "",
+                "operationId": "update solution",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "PATCH",
+                            "uri": "/solutions/3",
+                            "headers": {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            "body": "state=tested"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "update solution",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        },
+        "/testing-servers/auth": {
+            "post": {
+                "description": "",
+                "operationId": "testing server auth",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "login",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "POST",
+                            "uri": "/testing-servers/auth",
+                            "headers": {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            "body": "login=test&password=test"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "testing server auth",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        },
+        "/clients/auth": {
+            "post": {
+                "description": "",
+                "operationId": "client auth",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "login",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "POST",
+                            "uri": "/clients/auth",
+                            "headers": {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            "body": "login=test&password=test"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "client auth",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        },
+        "/solutions/latest-new": {
+            "get": {
+                "description": "",
+                "operationId": "get latest new solution",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "GET",
+                            "uri": "/solutions/latest-new"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "get latest new solution",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        },
+        "/programming-languages": {
+            "get": {
+                "description": "",
+                "operationId": "get programming languages",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "security": [],
+                "x-unitTests": [
+                    {
+                        "request": {
+                            "method": "GET",
+                            "uri": "/programming-languages",
+                            "headers": {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            "body": "state=tested"
+                        },
+                        "expectedResponse": {
+                            "x-allowExtraHeaders": true,
+                            "x-bodyMatchMode": "NONE",
+                            "x-arrayOrderedMatching": false,
+                            "x-arrayCheckCount": false,
+                            "x-matchResponseSchema": true,
+                            "headers": {}
+                        },
+                        "x-testShouldPass": true,
+                        "x-testEnabled": true,
+                        "x-testName": "get programming languages",
+                        "x-testDescription": ""
+                    }
+                ],
+                "x-operation-settings": {
+                    "CollectParameters": false,
+                    "AllowDynamicQueryParameters": false,
+                    "AllowDynamicFormParameters": false,
+                    "IsMultiContentStreaming": false
+                }
+            }
+        }
+    }
+}
